@@ -104,11 +104,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>			
-		<dependency>
-			<groupId>com.tameme</groupId>
-			<artifactId>cobranza-common</artifactId>
-			<version>0.0.1</version>
-		</dependency>	
+
 	</dependencies>
 
 <build>
