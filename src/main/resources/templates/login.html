@@ -1,0 +1,53 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Cobranza Tameme</title>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+<style>
+    body > .grid {
+      height: 100%;
+    }
+    .column {
+      max-width: 450px;
+    }
+</style>
+</head>
+<body>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui block header">
+      <div class="content">
+        Login
+      </div>
+    </h2>
+    <form name="f" class="ui large form" th:action="@{/login}" method="post">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="User">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui right icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <input type="submit" class="ui primary button" value="Entrar">
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+  </div>
+</div>	
+
+</body>
+</html>

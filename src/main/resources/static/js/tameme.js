@@ -1,0 +1,2 @@
+$('#ordenpago').dropdown();
+$('#cfdi').dropdown();

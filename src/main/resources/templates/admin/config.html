@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Configuración</title>
+<link rel="stylesheet" href="/css/tameme.css" />
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+<body>
+	<div class="ui top fixed menu">
+		<div class="item">
+			<img src="/static/img/logo.png" th:src="@{../../img/logo.png}"
+				class="logo">
+		</div>
+		<a class="item">Usuarios</a> <a class="item">Clientes</a> <a
+			class="item active" th:href="@{/admin/editConfig/1}">Configuraci&oacute;n</a>
+		<a class="item" href="/logout">Logout</a>
+	</div>
+
+	<div class="uk-position-center uk-overlay uk-overlay-default">
+		<form action="#" th:action="@{/admin/update/{id}(id=${config.id})}"
+			th:object="${config}" method="post">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">Configuraci&oacute;n</legend>
+				<table width="100%" border="0">
+					<tr>
+						<td><label for="URL">URL</label></td>
+						<td><input size="150" type="text" th:field="*{urlWS}"
+							id="urlWS" placeholder="URL"> <span
+							th:if="${#fields.hasErrors('urlWS')}" th:errors="*{urlWS}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="email">User</label></td>
+						<td><input size="50" type="text" th:field="*{userWS}"
+							id="userWS" placeholder="user"> <span
+							th:if="${#fields.hasErrors('userWS')}" th:errors="*{userWS}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="email">RFC</label></td>
+						<td><input size="50" type="text" th:field="*{rfcWS}"
+							id="rfcWS" placeholder="rfc"> <span
+							th:if="${#fields.hasErrors('rfcWS')}" th:errors="*{rfcWS}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="email">Comprobantes</label></td>
+						<td><input size="100" type="text"
+							th:field="*{comprobantesORIG}" id="comprobantesORIG"
+							placeholder="comprobantes"> <span
+							th:if="${#fields.hasErrors('comprobantesORIG')}"
+							th:errors="*{comprobantesORIG}"></span></td>
+					</tr>
+					<tr>
+						<td><label for="email">Comprobantes OK</label></td>
+						<td><input size="100" type="text"
+							th:field="*{comprobantesOK}" id="comprobantesOK"
+							placeholder="comprobantesOK"> <span
+							th:if="${#fields.hasErrors('comprobantesOK')}"
+							th:errors="*{comprobantesOK}"></span></td>
+					</tr>
+					<tr>
+						<td><label for="email">Comprobantes ERROR</label></td>
+						<td><input size="100" type="text"
+							th:field="*{comprobantesERROR}" id="comprobantesERROR"
+							placeholder="comprobantesERROR"> <span
+							th:if="${#fields.hasErrors('comprobantesERROR')}"
+							th:errors="*{comprobantesERROR}"></span></td>
+					</tr>
+				</table>
+				<hr />
+				<table>
+					<tr>
+						<td><label for="email">Organizador Origen</label></td>
+						<td><input size="100" type="text" th:field="*{organizaORIG}"
+							id="organizaORIG" placeholder="organizaORIG"> <span
+							th:if="${#fields.hasErrors('organizaORIG')}"
+							th:errors="*{organizaORIG}"></span></td>
+					</tr>
+					<tr>
+						<td><label for="email">Organizador Destino</label></td>
+						<td><input size="100" type="text" th:field="*{organizaDEST}"
+							id="organizaDEST" placeholder="organizaDEST"> <span
+							th:if="${#fields.hasErrors('organizaDEST')}"
+							th:errors="*{organizaDEST}"></span></td>
+					</tr>
+				</table>
+			</fieldset>
+			<input type="submit" value="Actualiza">
+		</form>
+	</div>
+</body>
+</html>

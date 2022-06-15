@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/tameme.css" />
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css">
+	
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+<style>
+div.dataTables_wrapper {
+	width: 100%;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+	<div th:fragment="menu" class="ui segment">
+		<div class="ui blue top inverted menu">
+			<div class="item">
+				<img src="/img/logo.png"
+					th:src="@{/img/logo.png}" class="logo"/>
+			</div>
+			<div id="ordenpago" class="ui dropdown item ordenpago">
+				Orden de pago
+				<i class="dropdown icon"></i>
+				<div class="blue inverted menu">
+					<a class="item" th:href="@{/user/ordenpago/genera}">Generaci&oacute;n</a>
+					<a class="item" th:href="@{/user/ordenpago/consulta}">Consulta</a>									
+				</div>
+			</div>
+			<div id="cfdi" class="ui dropdown item cfdi">
+				CFDI 
+				<i class="dropdown icon"></i>
+				<div class="blue inverted menu">
+					<a class="item" th:href="@{/user/clientes}">Clientes</a>
+					<a class="item" th:href="@{/user/subclientes}">Subclientes</a>
+					<a class="item" th:href="@{/user/cfdis}">Comprobantes</a>
+				</div>
+			</div>
+			<div class="right menu">
+				<a class="item" href="/logout">Logout</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
