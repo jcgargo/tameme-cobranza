@@ -62,6 +62,7 @@ public class SeguridadConfig {
 					.antMatchers("/admin/**").hasRole("ADMIN")
 					.antMatchers("/customer/**").hasRole("CUSTOMER")
 					.antMatchers("/semantic/**").permitAll()
+					.antMatchers("/password/**").permitAll()
 				.anyRequest().authenticated()
 			)
 			.httpBasic(withDefaults())

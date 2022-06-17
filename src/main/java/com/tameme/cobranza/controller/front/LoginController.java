@@ -15,5 +15,10 @@ public class LoginController {
 	public String showLogin() {
 		return "login";
 	}
+	
+	@GetMapping("/password/cambio")
+	public String cambioPassword() {
+		return "password/cambio";
+	}
 
 }

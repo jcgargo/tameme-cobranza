@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tameme.cobranza.common.entity.OrdenPago;
-import com.tameme.cobranza.common.entity.Reporte;
 import com.tameme.cobranza.common.entity.view.RespuestaOrdenPago;
 import com.tameme.cobranza.common.service.interfaz.ICorreoService;
 import com.tameme.cobranza.common.service.interfaz.IOrdenPagoService;
@@ -71,14 +66,13 @@ public class OrdenPagoController {
 		Map<String, Object> params = new LinkedHashMap<String, Object>();
 		params.put("ordenPago", rop.getOrdenpago().getOrdenpagoId());
 		
-		InputStreamResource streamResource = null;
-		Reporte rep = null;
 		try {			
 			repService.guardar("orden_pago", params, rop.getOrdenpago().getArchivo());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		opService.generaZip(rop.getOrdenpago().getOrdenpagoId(), rop.getOrdenpago().getArchivo().replace(".pdf", ".zip"), opService.archivosOrden(rop.getOrdenpago()));
 
 		return rop;
 	}

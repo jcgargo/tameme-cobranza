@@ -45,6 +45,10 @@ div.dataTables_wrapper {
 		<div th:replace="user/menu :: menu" class="ui segment">
 		</div>
 
+		  <div id="loading" class="ui dimmer">
+		    <div class="ui large text loader">Loading</div>
+		  </div>		
+
 		<div id="mensaje" class="ui modal">
 		  <div class="header">
 		    Orden de pago
@@ -280,13 +284,15 @@ div.dataTables_wrapper {
 				    		});
 			});	
 
-			
+			$("#loading").addClass('active');
 			$.ajax({
 				url : '/user/ordenpago/genera/' + clienteId + '/' + cfdis
 			}).done(function(data) {
 				$("#msjTexto").html(data.mensaje);
 				$('#mensaje').modal('show');
 				gridCancelados.clear().rows.add(data.cancelados).draw();
+				carga();
+				$("#loading").removeClass('active');
 		   });
 		}
 		
